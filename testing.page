@@ -9,10 +9,10 @@
 <button type="button" id="play-2">PLAY 2</button>
 <button type="button" id="play-3">PLAY 3</button>
 <button type="button" id="QUIT">QUIT</button>
-<script src="/vendor/howler.js/2.1.1/dist/howler.js"></script>
+<script src="//cdn.ntfg.net/vendor/howler.js/2.2.3/dist/howler.js"></script>
 <script>
     var sound = new Howl({
-      src: ['/vendor/howler.js/2.1.1/examples/player/audio/80s_vibe.webm', '/vendor/howler.js/2.1.1/examples/player/audio/80s_vibe.mp3'],
+      src: ['//cdn.ntfg.net/vendor/howler.js/2.2.3/examples/player/audio/80s_vibe.webm', '//cdn.ntfg.net/vendor/howler.js/2.2.3/examples/player/audio/80s_vibe.mp3'],
 	    sprite: {
     blast: [0, 3000],
     laser: [4000, 1000],
