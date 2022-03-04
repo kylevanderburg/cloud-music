@@ -1,7 +1,5 @@
 <?php
 //Cloud Music - Kyle Vanderburg
-//Don't forget to read aa-readme.txt
-
 //Code that references NoteForge Liszt functions are prefixed LZ.
 
 //This page is the main interface for launching clouds--mostly HTML elements w/ some jQuery to pass variables.

@@ -1,7 +1,5 @@
 <?php
 //Cloud Music - Kyle Vanderburg
-//Don't forget to read aa-readme.txt
-
 //Code that references NoteForge Liszt functions are prefixed LZ.
 
 	//LZ: Liszt is built on a thing called Hammer, so we'll load and initiate Hammer
