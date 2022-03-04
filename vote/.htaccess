@@ -1,0 +1,5 @@
+Allow from all
+RewriteEngine off
+
+#copied and pasted from elsewhere
+

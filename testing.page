@@ -1,0 +1,40 @@
+<?php
+//Cloud Music - Kyle Vanderburg
+//Don't forget to read aa-readme.txt
+
+//this page is just a testing iteration of howler.js
+
+?>
+<button type="button" id="play1">PLAY 1</button>
+<button type="button" id="play-2">PLAY 2</button>
+<button type="button" id="play-3">PLAY 3</button>
+<button type="button" id="QUIT">QUIT</button>
+<script src="/vendor/howler.js/2.1.1/dist/howler.js"></script>
+<script>
+    var sound = new Howl({
+      src: ['/vendor/howler.js/2.1.1/examples/player/audio/80s_vibe.webm', '/vendor/howler.js/2.1.1/examples/player/audio/80s_vibe.mp3'],
+	    sprite: {
+    blast: [0, 3000],
+    laser: [4000, 1000],
+    winner: [6000, 5000]
+		},
+		autoplay: true,
+  loop: true,
+    });
+	
+	// var sound = new Howl({
+  // src: ['sounds.webm', 'sounds.mp3'],
+  // sprite: {
+    // blast: [0, 3000],
+    // laser: [4000, 1000],
+    // winner: [6000, 5000]
+  // }
+// });
+	
+	// sound.play('winner');
+	
+$("#play1").click(function(){sound.stop();sound.play('blast');});
+$('#play-2').click(function(){sound.stop();sound.play('laser');});
+$('#play-3').click(function(){sound.stop();sound.play('winner');});
+$('#QUIT').click(function(){sound.stop();});
+</script>

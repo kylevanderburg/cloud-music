@@ -1,0 +1,58 @@
+@import url('//nf.azureedge.net/common/kvclear.css');
+
+.hammer-buttonrow A{}
+.hammer-buttonrow A:link {text-decoration: none; color: #fff}
+.hammer-buttonrow A:visited {text-decoration: none; color: #fff}
+.hammer-buttonrow A:active {text-decoration: none; color: #fff}
+.hammer-buttonrow A:hover {text-decoration: none; color: #fff}
+
+.jumbotron{background-color:rgba(255,255,255,0);}
+
+
+.navbar .navbar-brand{
+}
+
+.navbar-inner {
+min-height: 60px; /* change value here*/
+}
+.navbar-default{background-color:rgba(255,255,255,0.6);}
+.navbar{  border-bottom-color: rgb(255, 255, 255);}
+#lisztnav{
+  background-color: rgba(255,255,255,0.6); /* fallback color, place your own */
+}
+
+.masthead{
+text-align:center;
+}
+
+.masthead h1{
+font-size:6em;
+line-height:1em;
+}
+
+.footer{
+text-align:center;
+padding-top:20px;
+}
+
+.form-group input[type="checkbox"] {
+    display: none;
+}
+
+.form-group input[type="checkbox"] + .btn-group > label span {
+    width: 20px;
+}
+
+.form-group input[type="checkbox"] + .btn-group > label span:first-child {
+    display: none;
+}
+.form-group input[type="checkbox"] + .btn-group > label span:last-child {
+    display: inline-block;   
+}
+
+.form-group input[type="checkbox"]:checked + .btn-group > label span:first-child {
+    display: inline-block;
+}
+.form-group input[type="checkbox"]:checked + .btn-group > label span:last-child {
+    display: none;   
+}

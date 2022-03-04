@@ -1,0 +1,19 @@
+Allow from all
+RewriteEngine on
+
+#copied and pasted from elsewhere
+
+RewriteCond %{HTTP_HOST} ^cloudmusic.me$ [NC]
+RewriteRule ^wp-login.php$ http://no.kylev.net [L]
+RewriteRule ^xmlrpc.php$ http://no.kylev.net [L]
+RewriteRule ^ics/([^/\.]+).ics$ survey-ical.php?survey=$1 [L]
+RewriteRule ^([^/\.]+)$ /$1/ [R]
+RewriteRule ^([^/\.]+)/?$ index.php?page=$1
+RewriteRule ^([^/\.]+)/([^/\.]+)$ /$1/$2/ [R]
+RewriteRule ^([^/\.]+)/([^/\.]+)/$ index.php?page=$1&slug=$2
+RewriteRule ^([^/\.]+)/([^/\.]+)/([^/\.]+)$ /$1/$2/$3/ [R]
+RewriteRule ^([^/\.]+)/([^/\.]+)/([^/\.]+)/$ index.php?page=$1&slug=$2&item=$3
+RewriteRule ^([^/\.]+)/([^/\.]+)/([^/\.]+)/([^/\.]+)$ /$1/$2/$3/$4/ [R]
+RewriteRule ^([^/\.]+)/([^/\.]+)/([^/\.]+)/([^/\.]+)/$ index.php?page=$1&slug=$2&item=$3&item2=$4
+RewriteRule ^([^/\.]+)/([^/\.]+)/([^/\.]+)/([^/\.]+)/([^/\.]+)$ /$1/$2/$3/$4/$5/ [R]
+RewriteRule ^([^/\.]+)/([^/\.]+)/([^/\.]+)/([^/\.]+)/([^/\.]+)/$ index.php?page=$1&slug=$2&item=$3&item2=$4&item3=$5 [L]
