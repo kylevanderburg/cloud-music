@@ -10,7 +10,7 @@ $options['vanguard']=FALSE;
 require "/var/www/api.ntfg.net/htdocs/hammer/vanilla.php";
 
 //LZ: the Head function loads...the head of the page. 
-$hammer->head("CloudMusic","<link rel=\"stylesheet\" href=\"/assets/cloudmusic-bootstrap.css?v=".$hammer->getHT('timestamp')."\" type=\"text/css\" />");
+$hammer->head("CloudMusic","<link rel=\"stylesheet\" href=\"https://liszt.dev/assets/lz-master3.css?v=".$hammer->getHT('timestamp')."\" type=\"text/css\" /><link rel=\"stylesheet\" href=\"/assets/cloudmusic-bootstrap.css?v=".$hammer->getHT('timestamp')."\" type=\"text/css\" />");
 
 	//This is dumb code that allows me to use this page as a template, which pulls in ".page" files. The interface for Cloud Music is at cloudmusic.page. 
 	//KV Page Handler

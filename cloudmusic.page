@@ -3,6 +3,9 @@
 //Code that references NoteForge Liszt functions are prefixed LZ.
 
 //This page is the main interface for launching clouds--mostly HTML elements w/ some jQuery to pass variables.
+
+//LZ: vanderburg_cloudmusic_cloud is a PHP class that includes a bunch of functions for reading/writing to the DB. We'll initiate it here to get some UI elements.
+	$cloud = new vanderburg_cloudmusic_cloud($hammer);
 ?>
 
 <div class="jumbotron">
@@ -15,45 +18,34 @@
 </div><!--row-->
 
 <?php //Name Row ?>
-<div class="row"><input type="text" id="name" placeholder="Your Name" class="form-control input input-lg" /><br /></div>
+<div class="row mb-5"><input type="text" id="name" placeholder="Your Name" class="form-control input input-lg" /><br /></div>
 
 <?php //Top row of dials ?>
 <div class="row">
-	<div class="col-md-4 text-center">
-		<strong>Rise Time</strong><br />
-		<input type="text" value="5000" class="dial" id="rise">
+	<div class="col-md-4 text-center mb-5">
+		<?php $cloud->rangeInput("rise","Rise Time",1,10000);?>
 	</div><!--col-md-4-->
-	<div class="col-md-4 text-center">
-		<strong>Float Time</strong><br />
-		<input type="text" value="5000" class="dial" id="float">
+	<div class="col-md-4 text-center mb-5">
+        <?php $cloud->rangeInput("float","Float Time",1,10000);?>
 	</div><!--col-md-4-->
-	<div class="col-md-4 text-center">
-		<strong>Fall Time</strong><br />
-		<input type="text" value="5000" class="dial" id="fall">
+	<div class="col-md-4 text-center mb-5">
+        <?php $cloud->rangeInput("fall","Fall Time",1,10000);?>
+		
 	</div><!--col-md-4-->
 </div><!--row-->
 
 <?php //Bottom row of dials ?>
 <div class="row">
-	<div class="col-md-4 text-center">
-		<strong>Altitude</strong><br />
-		<input type="text" value="5000" class="dial" id="altitude">
+	<div class="col-md-4 text-center mb-5">
+        <?php $cloud->rangeInput("altitude","Altitude",1,10000);?>
 	</div><!--col-md-4-->
-	<div class="col-md-4 text-center">
+	<div class="col-md-4 text-center mb-5">
 		<strong>Direction</strong><br />
-		<div style="height:35px;">
-			<input type="checkbox" id="direction" data-size="large" data-on-text="<span class='fa fa-arrow-left'></span>" data-on-color="success" data-off-text="<span class='fa fa-arrow-right'></span>" data-off-color="success">
-		</div><!--style-->
+        <?php echo $cloud->checkbox("direction","Left to Right");?>
 	</div><!--col-md-4-->
-	<div class="col-md-4 text-center">
+	<div class="col-md-4 text-center mb-5">
 		<strong>Thunder Cloud</strong><br />
-		<div class="form-group">
-			<input type="checkbox" name="thunder" id="thunderbox" autocomplete="off" />
-			<div class="btn-group">
-				<label for="thunderbox" class="btn btn-success"><span class="fa fa-check"></span><span> </span></label>
-				<label for="thunderbox" class="btn btn-light active">Thundercloud</label>
-			</div><!--btn-group-->
-		</div><!--form-group-->
+        <?php echo $cloud->checkbox("thundercloud","Thundercloud");?>
 	</div><!--col-md-4-->
 </div><!--row-->
 
@@ -73,44 +65,44 @@
 <?php //Javascript nonsense ?>
 <script>
 //Make the direction field a switch
-$("#direction").bootstrapSwitch();
+// $("#direction").bootstrapSwitch();
 
 //Make the following knobs:
-$("#rise").knob({
-    'min':0,
-    'max':10000,
-	'fgColor':"#66CC66",
-	'angleOffset':-125,
-	'angleArc':250
-});
-$("#float").knob({
-    'min':0,
-    'max':10000,
-	'fgColor':"#66CC66",
-	'angleOffset':-125,
-	'angleArc':250
-});
-$("#fall").knob({
-    'min':0,
-    'max':10000,
-	'fgColor':"#66CC66",
-	'angleOffset':-125,
-	'angleArc':250
-});
-$("#altitude").knob({
-    'min':0,
-    'max':10000,
-	'fgColor':"#66CC66",
-	'angleOffset':-125,
-	'angleArc':250
-});
-$("#rise2").knob({
-    'min':0,
-    'max':5000,
-	'fgColor':"#66CC66",
-	'angleOffset':-125,
-	'angleArc':250
-});
+// $("#rise").knob({
+    // 'min':0,
+    // 'max':10000,
+	// 'fgColor':"#66CC66",
+	// 'angleOffset':-125,
+	// 'angleArc':250
+// });
+// $("#float").knob({
+    // 'min':0,
+    // 'max':10000,
+	// 'fgColor':"#66CC66",
+	// 'angleOffset':-125,
+	// 'angleArc':250
+// });
+// $("#fall").knob({
+    // 'min':0,
+    // 'max':10000,
+	// 'fgColor':"#66CC66",
+	// 'angleOffset':-125,
+	// 'angleArc':250
+// });
+// $("#altitude").knob({
+    // 'min':0,
+    // 'max':10000,
+	// 'fgColor':"#66CC66",
+	// 'angleOffset':-125,
+	// 'angleArc':250
+// });
+// $("#rise2").knob({
+    // 'min':0,
+    // 'max':5000,
+	// 'fgColor':"#66CC66",
+	// 'angleOffset':-125,
+	// 'angleArc':250
+// });
 
 //Reset function
 $("#reset").click(function(){
