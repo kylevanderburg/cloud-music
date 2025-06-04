@@ -7,7 +7,7 @@
 $options['vanguard']=FALSE;
 
 //LZ: Vanilla is a wrapper for Hammer that loads a bunch of stuff, you can see the result at cloudmusic.me
-require "/var/www/api.ntfg.net/htdocs/hammer/vanilla.php";
+require "/var/www/liszt.cloud/hammer/vanilla.php";
 
 //LZ: the Head function loads...the head of the page. 
 $hammer->head("CloudMusic","<link rel=\"stylesheet\" href=\"https://liszt.dev/assets/lz-master3.css?v=".$hammer->getHT('timestamp')."\" type=\"text/css\" /><link rel=\"stylesheet\" href=\"/assets/cloudmusic-bootstrap.css?v=".$hammer->getHT('timestamp')."\" type=\"text/css\" />");
@@ -62,24 +62,25 @@ $hammer->head("CloudMusic","<link rel=\"stylesheet\" href=\"https://liszt.dev/as
 <?php }	?>
 
 <?php //LZ: Load the footer. ?>
-<?php $fullwidth=0; include('/var/www/cdn.ntfg.net/htdocs/footer/footer.snip');?>
+<?php $fullwidth=0; include('/var/www/liszt.cloud/templates/footer/footer.snip');?>
 
 <?php //LZ: Analytics tracking?>
-<!-- Piwik -->
-<script type="text/javascript">
-  var _paq = _paq || [];
-  _paq.push(["trackPageView"]);
-  _paq.push(["enableLinkTracking"]);
-
+<!-- Matomo -->
+<script>
+  var _paq = window._paq = window._paq || [];
+  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
   (function() {
-    var u=(("https:" == document.location.protocol) ? "https" : "http") + "://trk.ntfg.net/";
-    _paq.push(["setTrackerUrl", u+"piwik.php"]);
-    _paq.push(["setSiteId", "17"]);
-    var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
-    g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+    var u="//track.liszt.app/";
+    _paq.push(['setTrackerUrl', u+'matomo.php']);
+    _paq.push(['setSiteId', '105']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
   })();
 </script>
-<!-- End Piwik Code -->
+<!-- End Matomo Code -->
+
 
 </body>
 </html>

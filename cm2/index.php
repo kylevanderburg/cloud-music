@@ -4,14 +4,13 @@
 
 //LZ: We'll load the Liszt Core (called Hammer), and to do that we'll set some variables for this iteration:
 //LZ: this page doesn't require logging in, so set the Vanguard flag to False
-$options['vanguard']=TRUE;
-$options['vanguardAccess']="X";
+$options['vanguard']=FALSE;
 
 //LZ: Vanilla is a wrapper for Hammer that loads a bunch of stuff, you can see the result at cloudmusic.me
 require "/var/www/liszt.cloud/hammer/vanilla.php";
 
 //LZ: the Head function loads...the head of the page. 
-$hammer->head("CloudMusic","<link rel=\"stylesheet\" href=\"/assets/cloudmusic-bootstrap.css?v=".$hammer->getHT('timestamp')."\" type=\"text/css\" />");
+$hammer->head("CloudMusic","<link rel=\"stylesheet\" href=\"https://liszt.dev/assets/lz-master3.css?v=".$hammer->getHT('timestamp')."\" type=\"text/css\" /><link rel=\"stylesheet\" href=\"/assets/cloudmusic-bootstrap.css?v=".$hammer->getHT('timestamp')."\" type=\"text/css\" />");
 
 	//This is dumb code that allows me to use this page as a template, which pulls in ".page" files. The interface for Cloud Music is at cloudmusic.page. 
 	//KV Page Handler
@@ -52,7 +51,78 @@ $hammer->head("CloudMusic","<link rel=\"stylesheet\" href=\"/assets/cloudmusic-b
 	//If naked url as before, load cloudmusic.page. Container is a Bootstrap class to prevent it from being full-width.
 	if($page=="index"){?>
 	<div class="container">
-	<?php include "cloudmusic.page";?>
+	
+	<?php
+	echo "<h1>Austerity</h1>";
+echo "<script src=\"//cdn.liszt.app/vendor/howler.js/2.2.3/dist/howler.js\"></script>";
+?>
+<button type="button" class="cuebtn btn btn-lg btn-success mb-3" id="cue1"><i class="fas fa-rocket"></i> Play audio</button><br />
+<button type="button" class="btn btn-lg btn-danger mb-3" id="stop"><i class="fas fa-square"></i> STOP</button><br />
+<span id="alpha">asdf</span>
+<span id="beta">asdf</span>
+<span id="gamma">asdf</span>\
+
+<button id="accelPermsButton"  style="height:50px;" onclick="getAccel()"><h1>Get Accelerometer Permissions</h1></button>
+        
+<script>
+var id1;
+
+// var cue1 = new Howl({
+  // src: ['//kylevanderburg.com/assets/epm/Austerity Backing Track.wav'],
+  // html5: true
+// });
+
+// $('#stop').click(function(){
+	// cue1.stop();
+	// $('.cuebtn').removeClass('btn-warning').removeClass('btn-kv').addClass('btn-kv');
+// });
+
+// $('#cue1').click(function(){
+	// cue1.stop();
+	// id1=cue1.play();
+	// $('.cuebtn').removeClass('btn-warning').removeClass('btn-kv').addClass('btn-kv');
+	// $('#cue1').removeClass('btn-kv').addClass('btn-warning');
+// });
+
+
+//Accel
+
+function handleOrientation(event) {
+	// alert(event);
+  var absolute = event.absolute;
+  var alpha    = event.alpha;
+  var beta     = event.beta;
+  var gamma    = event.gamma;
+  Do stuff with the new orientation data
+  $('#alpha').html(alpha);
+  $('#beta').html(beta);
+  $('#gamma').html(gamma);
+}
+window.addEventListener("deviceorientation", handleOrientation, true);
+
+function getAccel(){
+    DeviceMotionEvent.requestPermission().then(response => {
+        if (response == 'granted') {
+            console.log("accelerometer permission granted");
+            // Do stuff here
+        }
+    });
+}
+
+if(window.DeviceMotionEvent){
+  window.addEventListener("devicemotion", motion, false);
+}else{
+  console.log("DeviceMotionEvent is not supported");
+}
+
+// function motion(event){
+  // alert("Accelerometer: "
+    // + event.accelerationIncludingGravity.x + ", "
+    // + event.accelerationIncludingGravity.y + ", "
+    // + event.accelerationIncludingGravity.z
+  // );
+// }
+</script>
 	</div>
 
 <?php }else{

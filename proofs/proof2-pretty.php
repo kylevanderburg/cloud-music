@@ -1,6 +1,6 @@
 <?php
 $options['vanguard']=FALSE;
-require "/var/www/api.ntfg.net/htdocs/hammer/vanilla.php";
+require "/var/www/liszt.cloud/hammer/vanilla.php";
 $hammer->head("CloudMusic","");
 $hammer->setHS(1);
 

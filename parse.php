@@ -3,7 +3,7 @@
 //Code that references NoteForge Liszt functions are prefixed LZ.
 
 	//LZ: Liszt is built on a thing called Hammer, so we'll load and initiate Hammer
-	require_once "/var/www/api.ntfg.net/htdocs/hammer/hammer.php";
+	require_once "/var/www/liszt.cloud/hammer/hammer.php";
 	$hammer = new Hammer;
 	
 	//Load database variables specific to this site
