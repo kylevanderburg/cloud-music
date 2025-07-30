@@ -133,7 +133,7 @@ if(window.DeviceMotionEvent){
 <?php }	?>
 
 <?php //LZ: Load the footer. ?>
-<?php $fullwidth=0; include('/var/www/liszt.cloud/templates/footer/footer.snip');?>
+<?php $fullwidth=0; include('/var/www/liszt.cloud/liszt-templates/footer/footer.snip');?>
 
 <?php //LZ: Analytics tracking?>
 <!-- Matomo -->
